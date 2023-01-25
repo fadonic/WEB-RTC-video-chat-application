@@ -50,7 +50,11 @@ export const RoomContextPovider: React.FC<{ children: any; data: any }> = ({
 
 	useEffect(() => {
 		const meId = uuidv4();
-		const peer = new Peer(meId);
+		const peer = new Peer(meId, {
+			host: 'localhost',
+			port: 9000,
+			path: '/',
+		});
 		setMe(peer);
 
 		navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
