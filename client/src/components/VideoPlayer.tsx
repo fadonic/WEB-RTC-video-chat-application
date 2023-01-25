@@ -10,7 +10,7 @@ const VideoPlayer: React.FC<{ stream: MediaStream }> = ({ stream }) => {
 	}, [stream]);
 
 	return (
-		<video ref={videoRef} autoPlay style={{ width: '250px', padding: '5px' }} />
+		<video ref={videoRef} autoPlay style={{ width: '150px', padding: '5px' }} />
 	);
 };
 
