@@ -1,7 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 
-const VideoPlayer: React.FC<{ stream: MediaStream }> = ({ stream }) => {
-	const videoRef = useRef<HTMLVideoElement>(null);
+const VideoPlayer: React.FC<{ stream: MediaStream; vWidth: number }> = ({
+	stream,
+	vWidth,
+}) => {
+	const videoRef = useRef<HTMLVideoElement | any>();
 
 	useEffect(() => {
 		if (videoRef.current) {
@@ -10,7 +13,7 @@ const VideoPlayer: React.FC<{ stream: MediaStream }> = ({ stream }) => {
 	}, [stream]);
 
 	return (
-		<video ref={videoRef} autoPlay style={{ width: '150px', padding: '5px' }} />
+		<video ref={videoRef} autoPlay style={{ width: vWidth, padding: '5px' }} />
 	);
 };
 
